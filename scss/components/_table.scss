@@ -1,0 +1,73 @@
+.table {
+
+	&__gender {
+		font-weight: bold;
+		width: 15%;
+	}
+
+	&__date {
+		color: darken($help, 15%);
+		width: 21%;
+	}
+
+	&__name {
+		width: auto;
+		font-weight: bold;
+
+
+	}
+
+	&__btn {
+		width: 16%;
+
+	}
+
+
+	@media screen and (max-width: 650px) {
+		&, tbody, tr, td {
+			display: block;
+		}
+
+		tr {
+			position: relative;
+			border-bottom: 1px solid $dark;
+			height: 100%;
+			padding: 10px 80px 10px 0;
+
+			&:last-child {
+				border: none;
+			}
+		}
+
+		td {
+			width: 100%;
+		}
+
+		td::before {
+		content: attr(data-label);
+		display: inline-block;
+		margin-right: 5px;
+
+		}
+
+		&__btn {
+			width: auto !important;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: 0;
+		}
+	}
+}
+
+td {
+	padding-right: 25px;
+	text-align: left;
+}
+
+tr {
+	height: 42px;
+}
+
+

@@ -1,0 +1,7 @@
+footer {
+	background: $dark;
+
+	@media screen and (max-width: 520px) {
+		text-align: center;
+	}
+}

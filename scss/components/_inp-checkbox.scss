@@ -1,0 +1,31 @@
+.inp-checkbox {
+	position: relative;
+	display: inline-block;
+	font-size: 14px;
+	text-transform: uppercase;
+
+
+
+	&__text {
+		padding: 5px 18px;
+		color: $help;
+		background: transparent;
+		border-radius: 10px;
+
+
+	}
+
+	&__inp {
+		position: absolute;
+		left: -5000px;
+	}
+
+	&__inp:checked + &__text {
+		opacity: 1;
+		background: $primary;
+		color: $light;
+
+	}
+
+
+}

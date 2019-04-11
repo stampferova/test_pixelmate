@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ukol pro PM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="d-flex navigation navigation--main">
+			<div class="fg-1 d-flex justify-between">
+				<a href="#" class="logo t-dark">logo</a>
+				<ul class="navigation__list navigation__list--main d-flex">
+					<li class="navigation__item">
+						<a href="#" class="navigation__link navigation__link--main t-dark is-active">Položka</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#" class="navigation__link navigation__link--main t-dark">Položka</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#" class="navigation__link navigation__link--main t-dark">Položka</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#" class="navigation__link navigation__link--main t-dark">Položka</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#" class="navigation__link navigation__link--main t-dark">Položka</a>
+					</li>
+				</ul>
+			</div>
+			<div class="fb-a d-flex">
+				<div class="navigation__btn d-flex">
+					<a href="#" class="dropdown__toggle">
+						<span class="dropdown__toggle-icon"><i class="fas fa-wallet t-light icon icon-secondary"></i></span>
+						<span class="h5 t-dark toggle__text">
+							Label itemu <br> <span class="t-bold">Value itemu</span>
+						</span>
+					</a>
+				</div>
+				<div class="dropdown navigation__btn d-flex selected">
+					<a data-dropdown href="" class="dropdown__toggle">
+						<span class="dropdown__toggle-icon"><i class="fas fa-user t-light icon icon-primary"></i></span>
+						<span class="t-bold h5 t-dark toggle__text">Jméno Příjmení</span>
+						<span class="dropdown__indicator"><i class="fas fa-caret-down t-dark"></i></span>
+					</a>
+					<div class="dropdown__menu">
+						<ul class="dropdown__list">
+							<li class="dropdown__item">
+								<a href="#" class="dropdown__link t-dark">Položka</a>
+							</li>
+							<li class="dropdown__item">
+								<a href="#" class="dropdown__link t-dark">Položka</a>
+							</li>
+							<li class="dropdown__item">
+								<a href="#" class="dropdown__link t-dark">Položka</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a href="#" class="help">
+					<i class="fas fa-question-circle t-help"></i>
+				</a>
+				<div class="menu__toggle" aria-label="menu" title="menu" data-menu></div>
+			</div>
+		</nav>
+		<h1 class="t-center t-primary">
+			Testovací zadání
+		</h1>
+	</header>
+	<main id="app">
+		<div class="container">
+			<h3 class="t-light tt-u">formulář</h3>
+			<section class="container--box-lg">
+				<h3 class="t-dark t-bold tt-u t-left">
+					formulář
+				</h3>
+				<form class="container--box-md" @submit.prevent="add">
+					<div class="container--box-sm">
+						<h4 class="t-center t-bold">
+							Vzorový radio button
+						</h4>
+							<p>Rozšířený label radio buttonu, který může být delší
+							</p>
+						<label class="inp-checkbox">
+							<input type="radio" name="checkbox1" value="Muž" class="inp-checkbox__inp" v-model="newGender" checked>
+							<span class="inp-checkbox__text">
+								muž
+							</span>
+						</label>
+						<label class="inp-checkbox">
+							<input type="radio" name="checkbox1" value="Žena" class="inp-checkbox__inp" v-model="newGender">
+							<span class="inp-checkbox__text inp-checkbox__text--female">
+								žena
+							</span>
+						</label>
+					</div>
+					<label for="name" class="t-left">
+						Jméno
+					</label>
+					<input type="text" name="" id="name" ref="new" v-model="newName" required>
+					<label for="surname" class="t-left">
+						Příjmení
+					</label>
+					<input type="text" name="" id="surname" v-model="newSurname" required>
+					<button type="submit" class="btn btn-lg">
+						Pokračovat
+					</button>
+				</form>
+			</section>
+			<section class="container--box-lg">
+				<h3 class="t-dark t-bold t-left">
+					Přehled
+				</h3>
+				<table class="table">
+					<tr v-for="(dude, index) in characters" :key="index">
+						<td data-label="Datum:" class="table__date">{{ dude.date }}</td>
+						<td data-label="Pohlaví:" class="table__gender">{{ dude.gender }}</td>
+						<td data-label="Jméno:" class="table__name">{{ dude.name }} {{ dude.surname }}</td>
+						<td data-label="" class="table__btn"><a href="#" class="btn btn-sm">Zobrazit</a></td>
+					</tr>
+				</table>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<nav class="d-flex navigation flex-item justify-between">
+			<a href="#" class="logo t-light">logo</a>
+			<div class="flex-item d-flex">
+				<ul class="navigation__list d-flex">
+					<li class="navigation__item">
+						<a href="#" class="navigation__link t-light">Položka</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#" class="navigation__link t-light">Položka</a>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<a href="" class="social-icon" target="_blank" rel="noreferrer nofollow" aria-label="facebook" title="facebook"><i class="fab fa-facebook-f"></i>
+					</a>
+					<a href="" class="social-icon" target="_blank" rel="noreferrer nofollow" aria-label="twitter" title="twitter"><i class="fab fa-twitter"></i>
+					</a>
+					<a href="" class="social-icon" target="_blank" rel="noreferrer nofollow" aria-label="linkedin" title="linkedin"><i class="fab fa-linkedin-in"></i>
+					</a>
+				</div>
+				<div>
+					<a href="" class="t-light navigation__link">EN</a>
+				</div>
+			</div>
+		</nav>
+	</footer>
+
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				newDate: '',
+				newGender: 'Muž',
+				newName: '',
+				newSurname: '',
+
+				characters: [],
+			},
+			methods: {
+				add() {
+					if ( !this.newGender || !this.newName || !this.newSurname ) return
+
+					this.characters.unshift({
+						date: new Date().toISOString().slice(0, 10),
+						gender: this.newGender,
+						name: this.newName,
+						surname: this.newSurname
+					})
+
+					this.newDate = ''
+					this.newGender = 'Muž'
+					this.newName = ''
+					this.newSurname = ''
+
+					this.$refs.new.focus()
+					console.log('eeee');
+
+				}
+			},
+
+			created() {
+				fetch('https://api.myjson.com/bins/1hgerc')
+					.then(res => res.json())
+					.then(json => this.characters = json)
+
+			}
+
+		})
+	</script>
+	<script src="./main.js"> </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+@media screen and (max-width: 1065px) {
+
+	.menu__toggle {
+		display: block;
+		position: relative;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background-color: $primary;
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			left: 7px;
+			width: 20px;
+			top: 16px;
+			height: 3px;
+			background-color: $light;
+			box-shadow: 0 -7px $light, 0 7px $light;
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+
+		.is-menu-open &::after {
+			transform: rotate(45deg);
+			box-shadow: none;
+		}
+
+		.is-menu-open &::before {
+			transform: rotate(-45deg);
+			box-shadow: none;
+		}
+
+	}
+}
